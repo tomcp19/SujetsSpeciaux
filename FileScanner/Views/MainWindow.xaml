@@ -7,22 +7,46 @@
         mc:Ignorable="d"
         Title="File Scanner" Height="450" Width="800">
     <DockPanel>
+        
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="_File">
                 <MenuItem Header="_Open folder..." Command="{Binding OpenFolderCommand}"/>
             </MenuItem>
         </Menu>
+        
         <ToolBar DockPanel.Dock="Top">
             <Button Content="Scan" Command="{Binding ScanFolderCommand}" CommandParameter="{Binding SelectedFolder}" />
-
-
         </ToolBar>
+        
         <StatusBar DockPanel.Dock="Bottom">
             <TextBlock Text="Selected folder : "/>
             <TextBlock Text="{Binding SelectedFolder}"/>
         </StatusBar>
+
         <Grid>
-            <ListView ItemsSource="{Binding FolderItems}"/>
+            <DataGrid x:Name="dg" ItemsSource="{Binding ItemsList}" AutoGenerateColumns="False">
+                <DataGrid.Columns>
+                    
+                    <DataGridTemplateColumn Header="Icon">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Image MaxHeight="15" MaxWidth= "30" Source="{Binding FolderIconPath}"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <DataGridTemplateColumn >
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Image MaxHeight="15" MaxWidth= "30" Source="{Binding FileIconPath}"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <DataGridTextColumn Header="File Name" Binding="{Binding FilePath}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+
         </Grid>
     </DockPanel>
 </Window>
