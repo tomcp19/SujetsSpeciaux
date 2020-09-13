@@ -75,7 +75,7 @@ namespace FileScanner.ViewModels
             }
         }
 
-        //références
+        //références//
         //https://docs.microsoft.com/en-us/dotnet/standard/io/how-to-enumerate-directories-and-files
         //https://docs.microsoft.com/fr-fr/dotnet/csharp/programming-guide/concepts/async/
         //https://docs.microsoft.com/en-us/dotnet/standard/exceptions/how-to-use-the-try-catch-block-to-catch-exceptions
